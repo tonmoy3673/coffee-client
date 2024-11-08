@@ -1,7 +1,9 @@
+import AddCoffee from "../Pages/AddCoffee";
+
 const Home = ()=>{
     return (
         <div>
-            <h1>This is Home Page</h1>
+           <AddCoffee/>
         </div>
     )
 };

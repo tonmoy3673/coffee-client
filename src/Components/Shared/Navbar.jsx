@@ -2,7 +2,7 @@
 
 const Navbar = () => {
     return (
-        <div>
+        <div className="py-8">
             <h1>This is Navbar</h1>
         </div>
     );
