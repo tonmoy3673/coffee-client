@@ -19,8 +19,20 @@ const AddCoffee = () => {
         console.log(coffeeItems);
         window.alert('Coffee Added Successfully!!')
         form.reset();
+
+        fetch('http://localhost:5000/coffees',{
+            method: 'POST',
+            headers:{
+                'Content-Type' : 'application/json'
+            },
+            body: JSON.stringify(coffeeItems)
+    
+        })
+        .then((res)=>res.json())
+        .then((data)=>console.log(data))
     }
 
+    
   
     return (
         <div className="bg-slate-200 py-6 lg:py-12 px-4">
