@@ -14,6 +14,9 @@ const AllCoffees = () => {
                        coffees && coffees.map((coffee)=><Coffee key={coffee._id} coffee={coffee}/>) 
                     }
                 </div>
+                <div className="py-3 md:py-6 mb-2 text-center">
+                <button className="bg-[#967259] hover:bg-amber-500 py-2 px-3 text-white rounded-md">Show More</button>
+            </div>
         </div>
     );
 };

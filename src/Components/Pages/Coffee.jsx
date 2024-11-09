@@ -19,9 +19,7 @@ const Coffee = ({coffee}) => {
                
                 <button ><FaDeleteLeft fill="red" /></button>
             </div>
-            <div>
-                <button></button>
-            </div>
+            
         </div>
     );
 };
