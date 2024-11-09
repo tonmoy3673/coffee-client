@@ -13,14 +13,18 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+        loader:()=>fetch('http://localhost:5000/coffees')
+        
       },
       {
         path:'/home',
         element:<Home/>,
+        loader:()=>fetch('http://localhost:5000/coffees')
       },
       {
-        path:'/allCoffees',
-        element:<AllCoffees/>
+        path:'/coffees',
+        element:<AllCoffees/>,
+        loader:()=>fetch('http://localhost:5000/coffees')
       },
 
       {
