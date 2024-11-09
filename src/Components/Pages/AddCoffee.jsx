@@ -1,5 +1,5 @@
 
-
+import Swal from 'sweetalert2';
 const AddCoffee = () => {
 
     const handleSubmit =(event)=>{
@@ -11,10 +11,10 @@ const AddCoffee = () => {
         const taste = form.taste.value;
         const details = form.details.value;
         const photo = form.photo.value;
-        const category = form.category.value;
+        const price = form.price.value;
 
         const coffeeItems = {
-            name,chef,supplier,taste,details,photo,category
+            name,chef,supplier,taste,details,photo,price
         }
         console.log(coffeeItems);
         window.alert('Coffee Added Successfully!!')
@@ -29,7 +29,21 @@ const AddCoffee = () => {
     
         })
         .then((res)=>res.json())
-        .then((data)=>console.log(data))
+        .then((data)=>{
+            console.log(data);
+            if (data.insertedId) {
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Coffee Added Successfully!!',
+                    icon: 'success',
+                    confirmButtonText: 'Submit'
+                  })
+            }
+        }
+        
+    
+    )
+        
     }
 
     
@@ -74,8 +88,8 @@ const AddCoffee = () => {
                 {/* ================= 3rd row ============= */}
                 <div className="block md:flex items-center justify-center gap-2 lg:gap-24 mt-3 ">
                     <div className="text-center md:text-start mt-3">
-                    <label htmlFor="category" className="block">Category</label>
-                    <input required className="w-full lg:w-72 px-3 py-1 mt-2 rounded-md" type="text" id="category"  placeholder="Enter Coffee Category"/>
+                    <label htmlFor="price" className="block">price</label>
+                    <input required className="w-full lg:w-72 px-3 py-1 mt-2 rounded-md" type="text" id="price"  placeholder="Enter Coffee price"/>
                     </div>
                     
                     <div className="text-center md:text-start mt-3">
