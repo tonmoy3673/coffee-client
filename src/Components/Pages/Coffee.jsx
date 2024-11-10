@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import { FaDeleteLeft, FaEye, FaPencil } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 const Coffee = ({coffee}) => {
     const [loading,setLoading] = useState(false);
@@ -54,7 +55,7 @@ const Coffee = ({coffee}) => {
             <div className="flex flex-col gap-y-3 justify-end col-span-1">
                 <button><FaEye fill="blue" /></button>
                 
-                <button><FaPencil fill="green" /></button>
+               <Link to={`/coffees/${_id}`}> <button><FaPencil fill="green" /></button></Link>
                
                 <button onClick={()=>handleDelete(_id)} ><FaDeleteLeft fill="red" /></button>
             </div>
