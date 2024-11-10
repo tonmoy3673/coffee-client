@@ -1,9 +1,13 @@
 
+import { useState } from 'react';
 import Swal from 'sweetalert2';
 const AddCoffee = () => {
 
+    const [loading,setLoading] =useState(false);
+
     const handleSubmit =(event)=>{
         event.preventDefault();
+        setLoading (true)
         const form = event.target;
         const name = form.name.value;
         const chef = form.chef.value;
@@ -26,24 +30,29 @@ const AddCoffee = () => {
                 'Content-Type' : 'application/json'
             },
             body: JSON.stringify(coffeeItems)
+
     
         })
         .then((res)=>res.json())
         .then((data)=>{
+            setLoading(false); 
             console.log(data);
             if (data.insertedId) {
+                
                 Swal.fire({
                     title: 'Success!',
                     text: 'Coffee Added Successfully!!',
                     icon: 'success',
                     confirmButtonText: 'Submit'
                   })
+                  
             }
+            
         }
         
     
     )
-        
+    
     }
 
     
@@ -57,6 +66,10 @@ const AddCoffee = () => {
            <div>
             <form onSubmit={handleSubmit} className="flex items-center justify-center">
                <div>
+               {
+                loading && <p className='text-xl text-blue-600 text-center'>Loading</p>
+            }
+
                  {/* ======= 1st row =========== */}
                  <div className="block md:flex items-center justify-center gap-2 lg:gap-24 ">
                     <div className="text-center md:text-start mt-3">
